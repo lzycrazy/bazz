@@ -133,6 +133,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
+# smtp email configuration
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'poojachauhan2102@gmail.com'
+EMAIL_HOST_PASSWORD = 'puja@1997'
+
 
 MESSAGE_TAGS = {
     messages.ERROR : 'danger'
