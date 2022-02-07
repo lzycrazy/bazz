@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Post,Table,Contact,Singup,Record,blog
 from django.contrib import messages
+from django.conf import settings
 from django.core.mail import send_mail
 
 
