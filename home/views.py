@@ -50,9 +50,9 @@ def contact(request):
         
 #         contact.save()
 #         messages.success(request, f'Your Message has been sand.')
-#     context = {'contact':'active'}    
+#         context = {'contact':'active'}    
 
-    return render(request,'contact.html', context)
+    return render(request,'contact.html')
     
    
 
