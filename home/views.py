@@ -39,9 +39,18 @@ def contact(request):
         desc = request.POST['desc']
 
         contact = Contact(name=name,email=email,phone=phone,desc=desc)
-        contact.save()
-        messages.success(request, f'Your Message has been sand.')
-    context = {'contact':'active'}    
+        try:
+#             send_mail(subject,message,email_from ,['poojachauhan2102@gmail.com'])
+            contact.save()
+            messages.info(request,"Message Sent Successfully")
+            return redirect('/')
+             
+        except Exception as e:
+            return redirect('/contact')
+        
+#         contact.save()
+#         messages.success(request, f'Your Message has been sand.')
+#     context = {'contact':'active'}    
 
     return render(request,'contact.html', context)
     
