@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Post,Table,Contact,Singup,Record,blog
 from django.contrib import messages
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -39,8 +40,12 @@ def contact(request):
         desc = request.POST['desc']
 
         contact = Contact(name=name,email=email,phone=phone,desc=desc)
+        
+        subject=name
+        message=desc
+        email_from=settings.EMAIL_HOST_USER
         try:
-#             send_mail(subject,message,email_from ,['poojachauhan2102@gmail.com'])
+            send_mail(subject,message,email_from ,['poojachauhan2102@gmail.com'])
             contact.save()
             messages.info(request,"Message Sent Successfully")
             return redirect('/')
